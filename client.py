@@ -29,7 +29,7 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member): #test
-    role = get(server.roles, id='510097252509941772')
+    role = get(member.server.roles, id='510097252509941772')
     if not role in member.roles:
         await bot.wait_until_ready()
         await bot.add_roles(member, role)

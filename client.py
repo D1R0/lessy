@@ -29,7 +29,7 @@ async def on_ready():
 
 @bot.async_event 
 async def on_member_join(Member : discord.User): #test
-    role = get(message.server.roles, id='510097252509941772')
+    role = discord.utils.get(message.server.roles, id='510097252509941772')
     if not role in member.roles:
         await bot.wait_until_ready()
         await bot.add_roles(Member.name, role)

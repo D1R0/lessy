@@ -28,6 +28,12 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    print(str(message.author)+":"+message.content)
 
+async def on_member_join(member):
+        role = get(message.server.roles, id='510097252509941772')
+        if not role in member.roles:
+            await bot.wait_until_ready()
+            await bot.add_roles(member, role)
+
+            
 bot.run(str(os.environ.get("BOT_TOKEN")))

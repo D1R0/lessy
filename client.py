@@ -27,7 +27,7 @@ async def on_ready():
 
     return await bot.change_presence(game=discord.Game(name="by D1R0"))
 
-@bot.event
+@bot.async_event 
 async def on_member_join(Member : discord.User): #test
     role = get(message.server.roles, id='510097252509941772')
     if not role in member.roles:

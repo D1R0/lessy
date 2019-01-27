@@ -27,12 +27,10 @@ async def on_ready():
 
     return await bot.change_presence(game=discord.Game(name="by D1R0"))
 
-@bot.async_event 
-async def on_member_join(Member : discord.User): #test
-    role =get(Member.server.roles, id='510097252509941772')
-    if not role in Member.roles:
-        await bot.wait_until_ready()
-        await bot.add_roles(Member.name, role)
+@bot.event
+async def on_member_join(member):
+    role=discord.utils.get(member.server.roles,id='510097252509941772')
+    await bot.add_roles(member,role)
 
             
 bot.run(str(os.environ.get("BOT_TOKEN")))
